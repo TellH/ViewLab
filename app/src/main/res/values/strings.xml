@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ViewLab</string>
+    <string name="title_draw_color">drawColor()</string>
+    <string name="title_draw_graphic">画简单图形</string>
+    <string name="title_draw_path">drawPath()</string>
+    <string name="title_clip_rect">clipRect()</string>
+    <string name="title_canvas_change">几何变换</string>
+    <string name="title_canvas_Matrix">Matrix</string>
+    <string name="title_canvas_camera">Camera</string>
+    <string name="title_flipboard">折叠翻转</string>
+    <string name="title_animator">animator</string>
+    <string name="title_flip_animation">翻页动画</string>
+</resources>
