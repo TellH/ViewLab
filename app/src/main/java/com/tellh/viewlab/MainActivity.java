@@ -10,6 +10,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 
+import com.tellh.viewlab.transition.ShowTransitionPageFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         pageModels.add(new PageModel(R.string.title_animator, R.layout.practice_animator));
         // 翻页动画
         pageModels.add(new PageModel(R.string.title_flip_animation, R.layout.practice_flip_animation));
+        // Reveal动画
+        pageModels.add(new PageModel(R.string.title_reveal_animation, R.layout.practice_reveal_animation));
+        // Transition动画
+        pageModels.add(new PageModel(R.string.title_transition_animation, ShowTransitionPageFragment.newInstance()));
     }
 
     @Override
@@ -54,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public Fragment getItem(int position) {
                 PageModel pageModel = pageModels.get(position);
+                if (pageModel.page != null)
+                    return pageModel.page;
                 return PageFragment.newInstance(pageModel.practiceLayoutRes);
             }
 
@@ -84,9 +92,16 @@ public class MainActivity extends AppCompatActivity {
         @LayoutRes
         int practiceLayoutRes;
 
+        Fragment page;
+
         PageModel(@StringRes int titleRes, @LayoutRes int practiceLayoutRes) {
             this.titleRes = titleRes;
             this.practiceLayoutRes = practiceLayoutRes;
+        }
+
+        PageModel(@StringRes int titleRes, Fragment page) {
+            this.titleRes = titleRes;
+            this.page = page;
         }
     }
 }
